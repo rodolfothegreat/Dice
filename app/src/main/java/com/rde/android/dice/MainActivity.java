@@ -1,13 +1,19 @@
 package com.rde.android.dice;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
@@ -27,6 +33,12 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
+        //getSupportActionBar().hide(); // hide the title bar
+       // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        //        WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
+
         setContentView(R.layout.activity_main);
 
         btnRoll = findViewById(R.id.btnRoll);
@@ -74,6 +86,16 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
             showDice(activeDice);
 
         }
+
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.hide();
+       // requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
+
+
+
+     //   this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+      //          WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
     }
 
     private void rollDice() {
@@ -116,6 +138,23 @@ public class MainActivity extends AppCompatActivity implements NumberPicker.OnVa
         showDice(activeDice);
         Toast.makeText(this,
                 "Done!!!", Toast.LENGTH_SHORT).show();
+
+       // Toast toast=Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT);
+       // toast.setMargin(50,50);
+       // toast.show();
+
+        //Creating the LayoutInflater instance
+        LayoutInflater li = getLayoutInflater();
+        //Getting the View object as defined in the customtoast.xml file
+        View layout = li.inflate(R.layout.customtoast,(ViewGroup) findViewById(R.id.custom_toast_layout));
+
+        //Creating the Toast object
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.setView(layout);//setting the view of custom toast layout
+        toast.show();
+
 
     }
 

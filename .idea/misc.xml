@@ -11,16 +11,6 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
-  <component name="SbtLocalSettings">
-    <option name="modificationStamps">
-      <map>
-        <entry key="C:/jee/adt/macroid-starter-master" value="1428298036000" />
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">
